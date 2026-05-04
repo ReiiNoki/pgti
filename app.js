@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const API_BASE = ''; // 空字符串 = 同源，生产环境改为你的 Worker 域名
+  const API_BASE = 'https://pgti.reiinoki.workers.dev/'; // 空字符串 = 同源，生产环境改为你的 Worker 域名
 
   const state = {
     phase: 'home',
@@ -94,12 +94,12 @@
 
     const traitsHtml = state.traitScores.map((t, i) => {
       const level = i === 0 ? 'high' : (i === 1 ? 'mid' : 'low');
-      return '<div class="trait-bar-row"><span class="trait-bar-label">' + t.name + 
-             '</span><div class="trait-bar-track"><div class="trait-bar-fill ' + level + 
+      return '<div class="trait-bar-row"><span class="trait-bar-label">' + t.name +
+             '</span><div class="trait-bar-track"><div class="trait-bar-fill ' + level +
              '" style="width:100%"></div></div></div>';
     }).join('');
 
-    const restoredBanner = state.restoredFromStorage ? 
+    const restoredBanner = state.restoredFromStorage ?
       '<div class="restored-banner">📋 这是你上次的测试结果</div>' : '';
 
     card.innerHTML = restoredBanner +
@@ -141,7 +141,7 @@
       state._transitioning = true;
       const questionIds = state.questions.map(q => q.id);
       const answers = Object.values(state.answers);
-      
+
       try {
         const data = await submitAnswers(answers, questionIds);
         state.result = data.result;
@@ -218,7 +218,7 @@
     if (!state.result) return;
     const r = state.result;
     const text = '我在 PGTI 程序员极客人格测试中测出了「' + r.name + ' 型人格」：' + r.title + '。"' + r.quote + '"来测测你适合哪种编程语言。';
-    
+
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(() => showToast('已复制到剪贴板！快去分享吧 ✨', 'success'));
     } else {
@@ -236,7 +236,7 @@
       state.result = null;
       state.traitScores = null;
       state.restoredFromStorage = false;
-      
+
       try {
         state.questions = await fetchQuestions();
         renderQuiz();
