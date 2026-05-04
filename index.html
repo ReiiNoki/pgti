@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="程序员极客人格测试 PGTI - 30道开发场景题，测测你的代码灵魂更接近哪门编程语言。纯前端·离线可用·仅供娱乐">
+  <meta property="og:title" content="PGTI - 程序员极客人格测试">
+  <meta property="og:description" content="测测你适合哪种编程语言。31种编程语言人格，你是快乐胶水工程师还是编译器驯兽师？">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🖥️&lt;/text&gt;&lt;/svg&gt;">
+  <title>PGTI - 程序员极客人格测试</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <noscript>
+    <div style="text-align:center;padding:40px;color:#e8edf5;background:#080b12;min-height:100vh;font-family:sans-serif">
+      <h1>PGTI 需要 JavaScript</h1>
+      <p>请启用 JavaScript 后再来测试。</p>
+    </div>
+  </noscript>
+
+  <!-- 提示消息 -->
+  <div id="toast" class="toast hidden" role="alert"></div>
+
+  <!-- 主页 -->
+  <div id="home-page" class="page">
+    <div class="container">
+      <div class="logo-area">
+        <h1 class="main-title glitch" data-text="PGTI">PGTI</h1>
+        <p class="subtitle-en">Programmer Geek Type Indicator</p>
+        <p class="subtitle-cn">程序员极客人格测试</p>
+        <p class="tagline">测测你适合哪种编程语言</p>
+      </div>
+      <p class="description">
+        这不是严肃职业建议，而是一次面向程序员精神状态的抽象测试。
+        回答 30 个开发场景问题，看看你的代码灵魂更接近哪门语言。
+      </p>
+      <div class="btn-center">
+        <button id="start-btn" class="btn btn-primary btn-large pulse">开始测试</button>
+      </div>
+      <p class="footer-note">纯前端·离线可用·仅供娱乐</p>
+    </div>
+  </div>
+
+  <!-- 答题页 -->
+  <div id="quiz-page" class="page hidden">
+    <div class="container">
+      <div class="progress-wrapper">
+        <div class="progress-bar-bg">
+          <div id="progress-fill" class="progress-bar-fill" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0"></div>
+        </div>
+        <p id="progress-label" class="progress-label">第 1 / 30 题</p>
+      </div>
+      <p class="keyboard-hint">键盘快捷键：1-4 选择选项 · ← 上一题 · →/Enter 下一题</p>
+      <h2 id="question-text" class="question-text"></h2>
+      <div id="options-list" class="options-list" role="radiogroup" aria-label="选项"></div>
+      <div class="quiz-nav">
+        <button id="prev-btn" class="btn btn-secondary">上一题</button>
+        <span id="error-msg" class="error-msg hidden">请选择一个选项</span>
+        <button id="next-btn" class="btn btn-primary">下一题</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 结果页 -->
+  <div id="result-page" class="page hidden">
+    <div class="container">
+      <div id="result-card" class="result-card"></div>
+      <div class="result-actions">
+        <button id="restart-btn" class="btn btn-primary">重新测试</button>
+        <button id="copy-btn" class="btn btn-secondary">复制结果文本</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
