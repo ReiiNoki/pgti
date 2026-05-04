@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const API_BASE = 'https://pgti.reiinoki.workers.dev/'; // 空字符串 = 同源，生产环境改为你的 Worker 域名
+  const API_BASE = 'https://pgti.reiinoki.workers.dev'; // 空字符串 = 同源，生产环境改为你的 Worker 域名
 
   const state = {
     phase: 'home',
